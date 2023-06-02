@@ -8,6 +8,7 @@ namespace Data_Structure___Linked_List
 {
     internal class Node
     {
+        // UC1 - Create a linked list
         public int Data;
         public Node Next;
 
