@@ -54,6 +54,18 @@ namespace Data_Structure___Linked_List
             Console.WriteLine();
         }
 
+        // UC3 - Delete first node in linked list
+
+        public void RemoveFirst()
+        {
+            if (head != null)
+            {
+                Node temp = head;
+                head = head.Next;
+                temp = null;
+            }
+        }
+
         public void Display()
         {
             if (head == null)
