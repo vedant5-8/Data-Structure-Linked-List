@@ -30,6 +30,30 @@ namespace Data_Structure___Linked_List
             Console.WriteLine();
         }
 
+        // UC2 - Insert node to end of linked list
+
+        public void InsertEnd(int data)
+        {
+            Node newNode = new Node(data);
+
+            if (head == null)
+            {
+                head = newNode;
+            }
+            else
+            {
+                Node temp = head;
+
+                while (temp.Next != null)
+                {
+                    temp = temp.Next;
+                }
+                temp.Next = newNode;
+            }
+            Console.WriteLine("{0} inserted into linked list", newNode.Data);
+            Console.WriteLine();
+        }
+
         public void Display()
         {
             if (head == null)
