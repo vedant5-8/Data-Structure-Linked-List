@@ -10,6 +10,15 @@ namespace Data_Structure___Linked_List
     {
         public static void Main(string[] args)
         {
+            LinkedList list = new LinkedList();
+
+            // UC2 - Insert node from front
+
+            list.InsertFront(70);
+            list.InsertFront(30);
+            list.InsertFront(56);
+
+            list.Display();
 
         }
     }
