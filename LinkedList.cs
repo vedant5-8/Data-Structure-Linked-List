@@ -28,6 +28,14 @@ namespace Data_Structure___Linked_List
             Console.WriteLine();
         }
 
+        public void InsertFront(int data)
+        {
+            Node newNode = new Node(data);
+            newNode.Data = data;
+            newNode.Next = head;
+            head = newNode;
+        }
+
         public void Display()
         {
             if (head == null)
