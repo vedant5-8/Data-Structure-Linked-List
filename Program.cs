@@ -22,13 +22,14 @@ namespace Data_Structure___Linked_List
             list.Display();
             */
 
-            // UC2 - Insert node to end
+            // UC3 - Insert node to end
 
             list.InsertEnd(56);
             list.InsertEnd(30);
             list.InsertEnd(70);
 
             list.Display();
+
 
         }
     }
