@@ -30,7 +30,7 @@ namespace Data_Structure___Linked_List
             Console.WriteLine();
         }
 
-        // UC2 - Insert node to end of linked list
+        // UC3 - Insert node to end of linked list
 
         public void InsertEnd(int data)
         {
@@ -63,6 +63,30 @@ namespace Data_Structure___Linked_List
                 Node temp = head;
                 head = head.Next;
                 temp = null;
+            }
+        }
+
+        // UC6 - Delete last node in linked list
+
+        public void RemoveLast()
+        {
+            if (head != null)
+            {
+                if (head.Next == null)
+                {
+                    head = null;
+                }
+                else
+                {
+                    Node temp = head;
+                    while(temp.Next != null)
+                    {
+                        temp = temp.Next;
+                        Node lastNode = temp.Next;
+                        temp.Next = null;
+                        lastNode = null;
+                    }
+                }
             }
         }
 

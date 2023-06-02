@@ -34,6 +34,7 @@ namespace Data_Structure___Linked_List
 
             // UC5 - delete first node in linked list
 
+            /*
             list.InsertEnd(56);
             list.InsertEnd(30);
             list.InsertEnd(70);
@@ -41,6 +42,18 @@ namespace Data_Structure___Linked_List
             list.Display();
 
             list.RemoveFirst();
+            list.Display();
+            */
+
+            // UC6 - Delete last node in linked list
+
+            list.InsertEnd(56);
+            list.InsertEnd(30);
+            list.InsertEnd(70);
+
+            list.Display();
+
+            list.RemoveLast();
             list.Display();
         }
     }
