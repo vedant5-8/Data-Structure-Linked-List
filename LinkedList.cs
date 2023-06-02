@@ -54,7 +54,7 @@ namespace Data_Structure___Linked_List
             Console.WriteLine();
         }
 
-        // UC3 - Delete first node in linked list
+        // UC5 - Delete first node in linked list
 
         public void RemoveFirst()
         {
