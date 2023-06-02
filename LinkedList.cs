@@ -90,6 +90,42 @@ namespace Data_Structure___Linked_List
             }
         }
 
+        // UC7 - search the value og node in linked list
+
+        public void searchNode(int data)
+        {
+            Node temp = head;
+            int found = 0;
+            int i = 0;
+
+            if(temp != null)
+            {
+                while (temp != null)
+                {
+                    i++;
+
+                    if(temp.Data == data)
+                    {
+                        found++;
+                        break;
+                    }
+                    temp = temp.Next;
+                }
+                if(found == 1)
+                {
+                    Console.WriteLine("\n{0} is found at index = {1}.", data, i);
+                } 
+                else
+                {
+                    Console.WriteLine("\n{0} is not found in the list.", data);
+                }
+            } 
+            else
+            {
+                Console.WriteLine("List is Empty");
+            }
+        }
+
         public void Display()
         {
             if (head == null)

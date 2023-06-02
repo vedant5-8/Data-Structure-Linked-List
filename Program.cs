@@ -47,6 +47,7 @@ namespace Data_Structure___Linked_List
 
             // UC6 - Delete last node in linked list
 
+            /*
             list.InsertEnd(56);
             list.InsertEnd(30);
             list.InsertEnd(70);
@@ -55,6 +56,19 @@ namespace Data_Structure___Linked_List
 
             list.RemoveLast();
             list.Display();
+            */
+
+            // UC7 - search the value og node in linked list
+
+            list.InsertEnd(56);
+            list.InsertEnd(30);
+            list.InsertEnd(70);
+
+            list.Display();
+
+            list.searchNode(30);
+
+
         }
     }
 }
