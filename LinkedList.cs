@@ -54,6 +54,47 @@ namespace Data_Structure___Linked_List
             Console.WriteLine();
         }
 
+        // UC4 - insert data into specific position
+
+        public void InsertBetween(int data, int position)
+        {
+            Node newNode = new Node(data);
+            newNode.Data = data;
+            newNode.Next = null;
+
+            if (position < 1)
+            {
+                Console.WriteLine("\nPosition should be greater than 1");
+            }
+            else if (position == 1) 
+            {
+                newNode.Next = head;
+                head = newNode;
+            } 
+            else
+            {
+                Node temp = head;
+                for(int i = 1; i < position - 1; i++)
+                {
+                    if (temp != null)
+                    {
+                        temp = temp.Next;
+                    }
+                }
+
+                if (temp != null)
+                {
+                    newNode.Next = temp.Next;
+                    temp.Next = newNode;
+                }
+                else
+                {
+                    Console.WriteLine("\nThe previous node is null.");
+                }
+            }
+
+        }
+
         // UC5 - Delete first node in linked list
 
         public void RemoveFirst()
@@ -123,6 +164,23 @@ namespace Data_Structure___Linked_List
             else
             {
                 Console.WriteLine("List is Empty");
+            }
+        }
+
+        // UC8 - Insert data after a specific data
+
+        public void InsertAfter(Node prev_node, int data)
+        {
+            Node newNode = new Node(data);
+
+            if (prev_node == null)
+            {
+                Console.WriteLine("The given previous node cannot be null");
+            }
+            else
+            {
+                newNode.Next = prev_node.Next;
+                prev_node.Next = newNode;
             }
         }
 
