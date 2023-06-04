@@ -34,6 +34,7 @@ namespace Data_Structure___Linked_List
 
             // UC4 - insert data into specific position
 
+            /*
             list.InsertEnd(56);
             list.InsertEnd(70);
 
@@ -42,6 +43,7 @@ namespace Data_Structure___Linked_List
             list.InsertBetween(30, 2);
 
             list.Display();
+            */
 
             // UC5 - delete first node in linked list
 
@@ -80,6 +82,18 @@ namespace Data_Structure___Linked_List
 
             list.searchNode(30);
             */
+
+            // UC8 - insert an given element after a specific element
+
+            list.InsertEnd(56);
+            list.InsertEnd(30);
+            list.InsertEnd(70);
+
+            list.Display();
+
+            list.InsertAfter(69, 40);
+
+            list.Display();
 
         }
     }

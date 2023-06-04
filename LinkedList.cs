@@ -169,19 +169,25 @@ namespace Data_Structure___Linked_List
 
         // UC8 - Insert data after a specific data
 
-        public void InsertAfter(Node prev_node, int data)
+        public void InsertAfter(int prev_node, int data)
         {
             Node newNode = new Node(data);
 
-            if (prev_node == null)
+            if (prev_node == head.Data)
             {
-                Console.WriteLine("The given previous node cannot be null");
+                newNode.Next = head.Next;
+                head.Next = newNode;
             }
-            else
+
+            Node temp = head;
+
+            while(temp.Data != prev_node)
             {
-                newNode.Next = prev_node.Next;
-                prev_node.Next = newNode;
+                temp = temp.Next;
             }
+
+            newNode.Next = temp.Next;
+            temp.Next = newNode;
         }
 
         public void Display()
