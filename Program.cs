@@ -95,6 +95,14 @@ namespace Data_Structure___Linked_List
 
             list.Display();
 
+            // UC9 - Delete a given data and count the size of list
+
+            list.Remove(40);
+
+            list.Display();
+
+            list.countNodes();
+
         }
     }
 }

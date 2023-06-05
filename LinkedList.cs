@@ -189,6 +189,32 @@ namespace Data_Structure___Linked_List
 
         }
 
+        public void Remove(int data)
+        {
+
+            Node currentNode = head;
+            Node previousNode = null;
+
+            while (currentNode != null && currentNode.Data != data)
+            {
+                previousNode = currentNode;
+                currentNode = currentNode.Next;
+            }
+
+            if (currentNode != null)
+            {
+                if (previousNode == null)
+                {
+                    head = currentNode.Next;
+                }
+                else
+                {
+                    previousNode.Next = currentNode.Next;
+                }
+            }
+
+        }
+
         public void countNodes()
         {
             Node temp = head;
