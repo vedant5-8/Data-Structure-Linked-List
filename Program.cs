@@ -91,7 +91,7 @@ namespace Data_Structure___Linked_List
 
             list.Display();
 
-            list.InsertAfter(69, 40);
+            list.InsertAfter(30, 40);
 
             list.Display();
 

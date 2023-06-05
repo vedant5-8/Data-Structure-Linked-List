@@ -152,7 +152,7 @@ namespace Data_Structure___Linked_List
                     }
                     temp = temp.Next;
                 }
-                if(found == 1)
+                if (found == 1)
                 {
                     Console.WriteLine("\n{0} is found at index = {1}.", data, i);
                 } 
@@ -171,23 +171,34 @@ namespace Data_Structure___Linked_List
 
         public void InsertAfter(int prev_node, int data)
         {
-            Node newNode = new Node(data);
+            Node currentNode = head;
+            Node previousNode = null;
 
-            if (prev_node == head.Data)
+            while (currentNode != null && currentNode.Data != prev_node)
             {
-                newNode.Next = head.Next;
-                head.Next = newNode;
+                previousNode = currentNode;
+                currentNode = currentNode.Next;
             }
 
-            Node temp = head;
-
-            while(temp.Data != prev_node)
+            if (currentNode != null)
             {
+                Node newNode = new Node(data);
+                newNode.Next = currentNode.Next;
+                currentNode.Next = newNode;
+            }
+
+        }
+
+        public void countNodes()
+        {
+            Node temp = head;
+            int count = 0;
+            while (temp != null)
+            {
+                count++;
                 temp = temp.Next;
             }
-
-            newNode.Next = temp.Next;
-            temp.Next = newNode;
+            Console.WriteLine("Size of the list is " + count);
         }
 
         public void Display()
