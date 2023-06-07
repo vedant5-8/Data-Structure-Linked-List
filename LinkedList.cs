@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace Data_Structure___Linked_List
 {
-    internal class LinkedList
+    internal class LinkedList<T> where T : IComparable<T>
     {
-        Node head;
+        Node<T> head;
 
         // UC2 - Insert node from front of linked list
 
-        public void InsertFront(int data)
+        public void InsertFront(T data)
         {
-            Node newNode = new Node(data);
+            Node<T> newNode = new Node<T>(data);
 
             if (head == null)
             {
@@ -32,9 +32,9 @@ namespace Data_Structure___Linked_List
 
         // UC3 - Insert node to end of linked list
 
-        public void InsertEnd(int data)
+        public void InsertEnd(T data)
         {
-            Node newNode = new Node(data);
+            Node<T> newNode = new Node<T>(data);
 
             if (head == null)
             {
@@ -42,7 +42,7 @@ namespace Data_Structure___Linked_List
             }
             else
             {
-                Node temp = head;
+                Node<T> temp = head;
 
                 while (temp.Next != null)
                 {
@@ -56,9 +56,9 @@ namespace Data_Structure___Linked_List
 
         // UC4 - insert data into specific position
 
-        public void InsertBetween(int data, int position)
+        public void InsertBetween(T data, int position)
         {
-            Node newNode = new Node(data);
+            Node<T> newNode = new Node<T>(data);
             newNode.Data = data;
             newNode.Next = null;
 
@@ -73,7 +73,7 @@ namespace Data_Structure___Linked_List
             } 
             else
             {
-                Node temp = head;
+                Node<T> temp = head;
                 for(int i = 1; i < position - 1; i++)
                 {
                     if (temp != null)
@@ -101,7 +101,7 @@ namespace Data_Structure___Linked_List
         {
             if (head != null)
             {
-                Node temp = head;
+                Node<T> temp = head;
                 head = head.Next;
                 temp = null;
             }
@@ -119,11 +119,11 @@ namespace Data_Structure___Linked_List
                 }
                 else
                 {
-                    Node temp = head;
+                    Node<T> temp = head;
                     while(temp.Next != null)
                     {
                         temp = temp.Next;
-                        Node lastNode = temp.Next;
+                        Node<T> lastNode = temp.Next;
                         temp.Next = null;
                         lastNode = null;
                     }
@@ -131,56 +131,37 @@ namespace Data_Structure___Linked_List
             }
         }
 
-        // UC7 - search the value og node in linked list
+        // UC7 - search the value of node in linked list
 
-        public void searchNode(int data)
+        public bool Search(T data)
         {
-            Node temp = head;
-            int found = 0;
-            int i = 0;
-
-            if(temp != null)
+            Node<T> temp = head;
+            while (temp != null)
             {
-                while (temp != null)
+                if (temp.Data.Equals(data))
                 {
-                    i++;
-
-                    if(temp.Data == data)
-                    {
-                        found++;
-                        break;
-                    }
-                    temp = temp.Next;
+                    return true;
                 }
-                if (found == 1)
-                {
-                    Console.WriteLine("\n{0} is found at index = {1}.", data, i);
-                } 
-                else
-                {
-                    Console.WriteLine("\n{0} is not found in the list.", data);
-                }
-            } 
-            else
-            {
-                Console.WriteLine("List is Empty");
+                temp = temp.Next;
             }
+
+            return false;
         }
 
         // UC8 - insert an given element after a specific element
 
-        public void InsertAfter(int prev_data, int data)
+        public void InsertAfter(T prev_data, T data)
         {
-            Node temp = head;
+            Node<T> temp = head;
 
-            while (temp != null && temp.Data != prev_data)
+            while (temp != null && !temp.Data.Equals(prev_data))
             {
                 temp = temp.Next;
             }
 
             if (temp != null)
             {
-                Node newNode = new Node(data);
+                Node<T> newNode = new Node<T>(data);
                 newNode.Data = data;
                 newNode.Next = temp.Next;
                 temp.Next = newNode;
@@ -189,12 +170,12 @@ namespace Data_Structure___Linked_List
 
         // UC9 - delete specific data from the Linked List
         // and show the size of LinkedList
-        public void Remove(int data)
+        public void Remove(T data)
         {
-            Node temp = head;
-            Node previous = null;
+            Node<T> temp = head;
+            Node<T> previous = null;
 
-            while (temp != null && temp.Data != data)
+            while (temp != null && !temp.Data.Equals(data))
             {
                 previous = temp;
                 temp = temp.Next;
@@ -215,7 +196,7 @@ namespace Data_Structure___Linked_List
 
         public void countNodes()
         {
-            Node temp = head;
+            Node<T> temp = head;
             int count = 0;
             while (temp != null)
             {
@@ -230,15 +211,15 @@ namespace Data_Structure___Linked_List
         public void sort()
         {
             Console.Write("Sorted ");
-            Node current = head;
+            Node<T> current = head;
 
             while (current != null && current.Next != null)
             {
-                Node nextNode = current.Next;
+                Node<T> nextNode = current.Next;
 
-                if (current.Data > nextNode.Data)
+                if (current.Data.CompareTo(nextNode.Data) > 0)
                 {
-                    int temp = current.Data;
+                    T temp = current.Data;
                     current.Data = nextNode.Data;
                     nextNode.Data = temp;
 
@@ -248,9 +229,7 @@ namespace Data_Structure___Linked_List
                 {
                     current = current.Next;
                 }
-
             }
-
         }
 
         public void Display()
@@ -261,7 +240,7 @@ namespace Data_Structure___Linked_List
             }
             else
             {
-                Node temp = head;
+                Node<T> temp = head;
                 Console.WriteLine("Linked List contains");
 
                 while (temp != null)

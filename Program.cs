@@ -10,7 +10,7 @@ namespace Data_Structure___Linked_List
     {
         public static void Main(string[] args)
         {
-            LinkedList list = new LinkedList();
+            LinkedList<int> list = new LinkedList<int>();
 
             // UC2 - Insert node from front
 
