@@ -167,64 +167,24 @@ namespace Data_Structure___Linked_List
             }
         }
 
-        // UC8 - Insert data after a specific data
+        // UC8 - insert an given element after a specific element
 
-        public void InsertAfter(int prev_node, int data)
-        {
-            Node currentNode = head;
-            Node previousNode = null;
-
-            while (currentNode != null && currentNode.Data != prev_node)
-            {
-                previousNode = currentNode;
-                currentNode = currentNode.Next;
-            }
-
-            if (currentNode != null)
-            {
-                Node newNode = new Node(data);
-                newNode.Next = currentNode.Next;
-                currentNode.Next = newNode;
-            }
-
-        }
-
-        public void Remove(int data)
-        {
-
-            Node currentNode = head;
-            Node previousNode = null;
-
-            while (currentNode != null && currentNode.Data != data)
-            {
-                previousNode = currentNode;
-                currentNode = currentNode.Next;
-            }
-
-            if (currentNode != null)
-            {
-                if (previousNode == null)
-                {
-                    head = currentNode.Next;
-                }
-                else
-                {
-                    previousNode.Next = currentNode.Next;
-                }
-            }
-
-        }
-
-        public void countNodes()
+        public void InsertAfter(int prev_data, int data)
         {
             Node temp = head;
-            int count = 0;
-            while (temp != null)
+
+            while (temp != null && temp.Data != prev_data)
             {
-                count++;
                 temp = temp.Next;
             }
-            Console.WriteLine("Size of the list is " + count);
+
+            if (temp != null)
+            {
+                Node newNode = new Node(data);
+                newNode.Data = data;
+                newNode.Next = temp.Next;
+                temp.Next = newNode;
+            }
         }
 
         public void Display()
