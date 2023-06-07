@@ -225,6 +225,34 @@ namespace Data_Structure___Linked_List
             Console.WriteLine("Size of the list is " + count);
         }
 
+        // UC10 - create Ordered Linked List in ascending order
+
+        public void sort()
+        {
+            Console.Write("Sorted ");
+            Node current = head;
+
+            while (current != null && current.Next != null)
+            {
+                Node nextNode = current.Next;
+
+                if (current.Data > nextNode.Data)
+                {
+                    int temp = current.Data;
+                    current.Data = nextNode.Data;
+                    nextNode.Data = temp;
+
+                    current = nextNode;
+                }
+                else
+                {
+                    current = current.Next;
+                }
+
+            }
+
+        }
+
         public void Display()
         {
             if (head == null)

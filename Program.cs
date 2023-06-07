@@ -98,11 +98,19 @@ namespace Data_Structure___Linked_List
             // UC9 - delete specific data from the Linked List
             // and show the size of LinkedList
 
+            /*
             list.Remove(40);
 
             list.Display();
 
             list.countNodes();
+            */
+
+            // UC10 - create Ordered Linked List in ascending order
+
+            list.sort();
+
+            list.Display();
 
         }
     }
