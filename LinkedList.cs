@@ -187,6 +187,44 @@ namespace Data_Structure___Linked_List
             }
         }
 
+        // UC9 - delete specific data from the Linked List
+        // and show the size of LinkedList
+        public void Remove(int data)
+        {
+            Node temp = head;
+            Node previous = null;
+
+            while (temp != null && temp.Data != data)
+            {
+                previous = temp;
+                temp = temp.Next;
+            }
+
+            if (temp != null)
+            {
+                if (previous == null)
+                {
+                    head = temp.Next;
+                }
+                else
+                {
+                    previous.Next = temp.Next;
+                }
+            }
+        }
+
+        public void countNodes()
+        {
+            Node temp = head;
+            int count = 0;
+            while (temp != null)
+            {
+                count++;
+                temp = temp.Next;
+            }
+            Console.WriteLine("Size of the list is " + count);
+        }
+
         public void Display()
         {
             if (head == null)
